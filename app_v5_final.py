@@ -56,7 +56,6 @@ income = row1_col2.slider("Monthly Income of Customers",
                   (2000.00, 30000.00))
 
 mask = ~data.columns.isin(["loan_default", "borrower_rate", "employment_status"])
-st.markdown(mask)
 names = data.loc[:, mask].columns
 variable = row1_col3.selectbox("Select Variable to Compare", names)
 
@@ -89,7 +88,7 @@ fig2 = sns.lmplot(y="borrower_rate", x = variable, data = filtered_data, order=2
                   height=4, aspect=1/1, col="loan_default", hue="loan_default", 
                   palette = "Set2")
 
-# Put eaborn figure in col 2 
+# Put seaborn figure in col 2 
 row2_col2.subheader("Borrower Rate Correlations")
 row2_col2.pyplot(fig2, use_container_width=True)
 
